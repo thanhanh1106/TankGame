@@ -1,12 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MyObjectPooling;
+using System;
 
-public class TankShell : Projectile
+public class TankShell : Projectile,IPoolable<TankShell>
 {
-    public override PoolMember NameOfMemberPool => PoolMember.TankShell;
+    private Action<TankShell> returnAction;
+    public void Initialize(Action<TankShell> returnAction)
+    {
+        this.returnAction = returnAction;
+    }
 
-    protected override void MoveToDirection(Vector3 direction)
+    public void ReturnToPool()
+    {
+        returnAction?.Invoke(this);
+    }
+    private void OnDisable()
+    {
+        ReturnToPool();
+    }
+
+    public override void MoveInDirection(Vector3 direction)
     {
         direction.Normalize();
         rb.AddForce(direction*projectileData.FiringForce, ForceMode.Impulse);   
@@ -15,6 +30,7 @@ public class TankShell : Projectile
     {
         IDamageable damageable = other.GetComponent<IDamageable>();
         if (damageable != null) damageable.TakeDame(projectileData.Damage);
-        Invoke("ReturnPool", 0.2f);
+
+        gameObject.SetActive(false);
     }
 }

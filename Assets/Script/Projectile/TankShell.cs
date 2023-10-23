@@ -16,15 +16,21 @@ public class TankShell : Projectile,IPoolable<TankShell>
     {
         returnAction?.Invoke(this);
     }
+    private void OnEnable()
+    {
+        Invoke("ReturnToPool", projectileData.TimeExistence);
+    }
     private void OnDisable()
     {
+        CancelInvoke();
         ReturnToPool();
     }
 
     public override void MoveInDirection(Vector3 direction)
     {
         direction.Normalize();
-        rb.AddForce(direction*projectileData.FiringForce, ForceMode.Impulse);   
+        //rb.AddForce(direction*projectileData.FiringForce, ForceMode.Impulse);   
+        rb.velocity = direction*projectileData.Speed;
     }
     protected void OnTriggerEnter(Collider other)
     {

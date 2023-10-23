@@ -45,5 +45,6 @@ public class PlayerInputSytem : MonoBehaviour
     public void RotateTowerInput(float value)
     {
         RotateTower = value;
+        
     }
 }

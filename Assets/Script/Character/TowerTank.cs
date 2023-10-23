@@ -16,4 +16,9 @@ public class TowerTank : MonoBehaviour
         Quaternion targetQuanternion = Quaternion.LookRotation(direction,Vector3.up);
         transform.rotation = Quaternion.Lerp(transform.rotation, targetQuanternion, rotateSpeed*Time.deltaTime);
     }
+
+    public void Attack()
+    {
+
+    }
 }

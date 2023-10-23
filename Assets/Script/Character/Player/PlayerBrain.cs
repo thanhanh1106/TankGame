@@ -10,10 +10,10 @@ public class PlayerBrain : CharacterBrain
     {
         inputSytem = GetComponent<PlayerInputSytem>();
     }
-
     private void Update()
     {
         characterMove.LookDirectionAndMove(inputSytem.Movement);
         tower.RotateByInput(inputSytem.RotateTower);
+        if (inputSytem.OnAttacking) Attack();
     }
 }

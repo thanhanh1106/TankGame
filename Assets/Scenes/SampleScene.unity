@@ -123,6 +123,36 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: b2303928f2ab7c544a827ecb43c87ce1, type: 2}
+--- !u!1 &38765609 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 720487909669308940, guid: eb76f8a5d95ba0f4aa19e32dcc99ea70, type: 3}
+  m_PrefabInstance: {fileID: 7274341396825921687}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &38765610 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1809482900650559293, guid: eb76f8a5d95ba0f4aa19e32dcc99ea70, type: 3}
+  m_PrefabInstance: {fileID: 7274341396825921687}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &38765611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38765609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f134bbc4007049c46b5dbd4f65f52b1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WeaponData: {fileID: 11400000, guid: fdd5f1f6ee88e62438fe88b44cb9608a, type: 2}
+  spawnPoint: {fileID: 2026356116}
+  OnAttack:
+    m_PersistentCalls:
+      m_Calls: []
+  OnChangeProjectile:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &274470437
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,7 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51099c5a57d124a4eb4edc1876009a96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TankShellPrefab: {fileID: 0}
+  TankShellPrefab: {fileID: 9094009511398482965, guid: ebc8ef3e1eaa76c44aacba4e5ec67bf4, type: 3}
 --- !u!4 &274470439
 Transform:
   m_ObjectHideFlags: 0
@@ -430,6 +460,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: d6f4f032-8ed5-4988-a70b-5ef73312fd37
     m_ActionName: Player Action/RotateTower[/Keyboard/leftArrow,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 878405857}
+        m_TargetAssemblyTypeName: PlayerInputSytem, Assembly-CSharp
+        m_MethodName: OnAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 29dc7810-b9f1-4914-a7e3-0cb21bc19b91
+    m_ActionName: Player Action/Fire[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player Action
@@ -478,6 +524,7 @@ MonoBehaviour:
   id: Player
   characterMove: {fileID: 878405858}
   tower: {fileID: 2110001283}
+  characterAttack: {fileID: 878405862}
 --- !u!195 &878405860
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -505,6 +552,18 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6251033352643628073, guid: eb76f8a5d95ba0f4aa19e32dcc99ea70, type: 3}
   m_PrefabInstance: {fileID: 7274341396825921687}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &878405862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 878405855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ace640c1c242201418f8e0d50dbe9b56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -618,6 +677,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 633746799354323228, guid: eb76f8a5d95ba0f4aa19e32dcc99ea70, type: 3}
   m_PrefabInstance: {fileID: 7274341396825921687}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2026356115
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2026356116}
+  m_Layer: 0
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2026356116
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2026356115}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.155}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 38765610}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2110001281 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 264859130099969587, guid: eb76f8a5d95ba0f4aa19e32dcc99ea70, type: 3}
@@ -694,7 +784,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1809482900650559293, guid: eb76f8a5d95ba0f4aa19e32dcc99ea70, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2026356116}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6557610834839314747, guid: eb76f8a5d95ba0f4aa19e32dcc99ea70, type: 3}
       insertIndex: -1
@@ -711,7 +804,13 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6557610834839314747, guid: eb76f8a5d95ba0f4aa19e32dcc99ea70, type: 3}
       insertIndex: -1
       addedObject: {fileID: 878405860}
+    - targetCorrespondingSourceObject: {fileID: 6557610834839314747, guid: eb76f8a5d95ba0f4aa19e32dcc99ea70, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 878405862}
     - targetCorrespondingSourceObject: {fileID: 264859130099969587, guid: eb76f8a5d95ba0f4aa19e32dcc99ea70, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2110001283}
+    - targetCorrespondingSourceObject: {fileID: 720487909669308940, guid: eb76f8a5d95ba0f4aa19e32dcc99ea70, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 38765611}
   m_SourcePrefab: {fileID: 100100000, guid: eb76f8a5d95ba0f4aa19e32dcc99ea70, type: 3}

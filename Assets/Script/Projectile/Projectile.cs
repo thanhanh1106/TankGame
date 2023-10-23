@@ -11,5 +11,9 @@ public abstract class Projectile : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
     }
+    private void Update()
+    {
+        
+    }
     public abstract void MoveInDirection(Vector3 direction);
 }

@@ -8,10 +8,11 @@ public abstract class Weapon : MonoBehaviour
 {
     [SerializeField] protected WeaponSO WeaponData;
     [SerializeField] protected Transform spawnPoint;
-    public UnityEvent<bool> OnAttack;
-    public UnityEvent<int> OnChangeProjectile;
+    [HideInInspector] public UnityEvent<bool> OnAttack;
+    [HideInInspector] public UnityEvent<int> OnChangeProjectile;
 
     protected int currentProjectile;
+    protected bool isOnReloading;
 
     protected virtual void Start()
     {

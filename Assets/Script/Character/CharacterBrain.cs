@@ -6,9 +6,9 @@ public abstract class CharacterBrain : MonoBehaviour
 {
     [SerializeField] protected string id;
 
-    [SerializeField] protected CharacterMove characterMove;
-    [SerializeField] protected TowerTank tower;
-    [SerializeField] protected CharacterAttack characterAttack;
+     public CharacterMove characterMove;
+     public TowerTank tower;
+     public CharacterAttack characterAttack;
 
     public string Id => id;
 

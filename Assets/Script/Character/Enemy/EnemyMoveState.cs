@@ -2,15 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMove : FSMState<Enemy>
+public class EnemyMoveState : FSMState<Enemy>
 {
-    public EnemyMove(FSM<Enemy> owner) : base(owner)
+    public EnemyMoveState(FSM<Enemy> owner) : base(owner)
     {
     }
 
     public override void EnterState()
     {
-        
+        subject.characterMove.SetDestination(subject.WayPoint[subject.currentPointIndex]);
+    }
+    public override void Update()
+    {
+
     }
 
     public override void ExitState()
@@ -28,8 +32,5 @@ public class EnemyMove : FSMState<Enemy>
         
     }
 
-    public override void Update()
-    {
-        
-    }
+
 }

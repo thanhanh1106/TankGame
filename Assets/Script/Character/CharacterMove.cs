@@ -14,6 +14,8 @@ public class CharacterMove : MonoBehaviour
 
     public Action OnArived;
 
+    public NavMeshAgent Agent => agent;
+
     public void SetDestination(Vector3 destnation)
     {
         agent.speed = speed;

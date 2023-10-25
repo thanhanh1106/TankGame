@@ -5,10 +5,12 @@ using UnityEngine;
 public abstract class FSMState<T> where T : MonoBehaviour
 {
     protected FSM<T> owner;
+    protected T subject;
 
     public FSMState(FSM<T> owner)
     {
         this.owner = owner;
+        this.subject = owner.obj;
     }
 
     public abstract void EnterState();

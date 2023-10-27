@@ -15,13 +15,13 @@ public class EnemyIdleState : FSMState<Enemy>
     }
     public override void Update()
     {
-        owner.obj.characterMove.Agent.isStopped = true;
+        subject.characterMove.Agent.isStopped = true;
         detalTime += Time.deltaTime;
-        if (detalTime >= owner.obj.Data.TimeRest)
+        if (detalTime >= subject.Data.TimeRest)
         {
-            owner.obj.currentPointIndex++;
-            if (owner.obj.currentPointIndex >= owner.obj.WayPoint.Count)
-                owner.obj.currentPointIndex = 0;
+            subject.currentPointIndex++;
+            if (subject.currentPointIndex >= subject.WayPoint.Count)
+                subject.currentPointIndex = 0;
             owner.ChangeState(owner.obj.moveState);
         }
             

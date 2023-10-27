@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAttackState : FSMState<Enemy>
+public class EnemyEscapeState : FSMState<Enemy>
 {
-    public EnemyAttackState(FSM<Enemy> owner) : base(owner)
+    public EnemyEscapeState(FSM<Enemy> owner) : base(owner)
     {
+
     }
 
     public override void EnterState()
@@ -17,7 +18,10 @@ public class EnemyAttackState : FSMState<Enemy>
     {
         
     }
+    public override void Update()
+    {
 
+    }
     public override void FixUpdate()
     {
         
@@ -25,13 +29,8 @@ public class EnemyAttackState : FSMState<Enemy>
 
     public override void LateUpdate()
     {
-       
+        
     }
 
-    public override void Update()
-    {
-        if (!subject.IsInRangeAttack)
-            owner.ChangeState(subject.chaseState);
-        subject.Attack();
-    }
+    
 }

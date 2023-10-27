@@ -6,4 +6,6 @@ using UnityEngine;
 public class EnemyDataSO : ScriptableObject
 {
     public float TimeRest;
+    public float RangeChase = 20;
+    public float RangeAttack = 10;
 }

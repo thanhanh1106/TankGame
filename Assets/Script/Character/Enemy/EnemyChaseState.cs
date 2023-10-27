@@ -10,26 +10,28 @@ public class EnemyChaseState : FSMState<Enemy>
 
     public override void EnterState()
     {
-        throw new System.NotImplementedException();
+        
+    }
+    public override void Update()
+    {
+        subject.characterMove.SetDestination(subject.Player.transform.position);
+        if (subject.IsInRangeAttack)
+            owner.ChangeState(subject.attackState);
+        if(!subject.IsInRangeChase)
+            owner.ChangeState(subject.moveState);
+    }
+    public override void FixUpdate()
+    {
+        
+    }
+    public override void LateUpdate()
+    {
+        
     }
 
     public override void ExitState()
     {
-        throw new System.NotImplementedException();
+        subject.characterMove.Agent.isStopped = true;
     }
 
-    public override void FixUpdate()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public override void LateUpdate()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public override void Update()
-    {
-        throw new System.NotImplementedException();
-    }
 }

@@ -11,6 +11,7 @@ public class Enemy : CharacterBrain
     public EnemyMoveState moveState;
     public EnemyChaseState chaseState;
     public EnemyAttackState attackState;
+    public EnemyEscapeState escapeState;
     #endregion
 
     [SerializeField] EnemyDataSO EnemyData;
@@ -19,8 +20,12 @@ public class Enemy : CharacterBrain
     [HideInInspector] public int currentPointIndex;
 
     #region Reference
-    GameManager manager => GameManager.Instance;
+    private GameManager manager => GameManager.Instance;
+    public PlayerBrain Player => manager.Player;
     #endregion
+
+    public bool IsInRangeChase => Vector3.Distance(transform.position, Player.transform.position) <= EnemyData.RangeChase;
+    public bool IsInRangeAttack => Vector3.Distance(transform.position, Player.transform.position) <= EnemyData.RangeAttack;
 
     #region Property
     public EnemyDataSO Data => EnemyData;
@@ -45,6 +50,7 @@ public class Enemy : CharacterBrain
         moveState = new EnemyMoveState(finiteStateMachine);
         chaseState = new EnemyChaseState(finiteStateMachine);
         attackState = new EnemyAttackState(finiteStateMachine);
+        escapeState = new EnemyEscapeState(finiteStateMachine);
     }
     protected override void Start()
     {

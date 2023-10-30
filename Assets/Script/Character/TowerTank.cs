@@ -5,6 +5,8 @@ using UnityEngine;
 public class TowerTank : MonoBehaviour
 {
     [SerializeField] private float rotateSpeed;
+    [SerializeField] private Weapon weapon;
+    public Weapon Weapon => weapon;
 
     public void RotateByInput(float inputVetical)
     {

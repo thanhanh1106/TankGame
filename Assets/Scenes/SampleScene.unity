@@ -428,7 +428,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: Enemy1
   characterMove: {fileID: 491464519}
-  tower: {fileID: 2110001283}
+  tower: {fileID: 1637260241}
   characterAttack: {fileID: 491464522}
   EnemyData: {fileID: 11400000, guid: 1a12181654fc6194c9a988eb7bb1c9de, type: 2}
   WayPoint: []
@@ -1033,6 +1033,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 10
+  weapon: {fileID: 2082231927}
 --- !u!4 &2004965950 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 633746799354323228, guid: eb76f8a5d95ba0f4aa19e32dcc99ea70, type: 3}
@@ -1117,6 +1118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 100
+  weapon: {fileID: 38765611}
 --- !u!1 &2144397112
 GameObject:
   m_ObjectHideFlags: 0

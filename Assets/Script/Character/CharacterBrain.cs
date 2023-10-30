@@ -18,7 +18,7 @@ public abstract class CharacterBrain : MonoBehaviour
     }
     public virtual void Attack()
     {
-        Vector3 direction = tower.transform.forward.normalized;
+        Vector3 direction = tower.Weapon.transform.forward.normalized;
         characterAttack.Attack(direction);
     }
 

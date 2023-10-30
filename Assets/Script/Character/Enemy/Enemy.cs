@@ -24,8 +24,9 @@ public class Enemy : CharacterBrain
     public PlayerBrain Player => manager.Player;
     #endregion
 
-    public bool IsInRangeChase => Vector3.Distance(transform.position, Player.transform.position) <= EnemyData.RangeChase;
-    public bool IsInRangeAttack => Vector3.Distance(transform.position, Player.transform.position) <= EnemyData.RangeAttack;
+    public bool IsInRangeChase => VectorToPlayer.sqrMagnitude <= EnemyData.RangeChase * EnemyData.RangeChase;
+    public bool IsInRangeAttack => VectorToPlayer.sqrMagnitude <= EnemyData.RangeAttack*EnemyData.RangeAttack;
+    public Vector3 VectorToPlayer => Player.transform.position - transform.position;
 
     #region Property
     public EnemyDataSO Data => EnemyData;

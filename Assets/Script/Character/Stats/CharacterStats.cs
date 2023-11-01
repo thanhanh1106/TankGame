@@ -6,10 +6,14 @@ using UnityEngine.Events;
 
 public class CharacterStats : MonoBehaviour
 {
-    [SerializeField] protected FloatValueSO currentStats;
+    [SerializeField] 
+    protected FloatValueSO currentStats;
 
+    [HideInInspector]
     public UnityEvent<float> OnStatsChanged;
+    [HideInInspector]
     public UnityEvent<float> OnStatsAdd;
+    [HideInInspector]
     public UnityEvent<float> OnStatsRemove;
 
     protected virtual void Start()
@@ -31,6 +35,7 @@ public class CharacterStats : MonoBehaviour
         currentStats -= statsValue;
         this.currentStats.Value = currentStats;
         OnStatsChanged?.Invoke(currentStats);
+
         OnStatsRemove?.Invoke(statsValue);
     }
     public virtual void ResetStats()

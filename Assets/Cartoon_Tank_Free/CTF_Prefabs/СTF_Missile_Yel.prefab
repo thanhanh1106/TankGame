@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8111747552132786935}
   - component: {fileID: 2147292736619480312}
   - component: {fileID: 4932975761792682413}
+  - component: {fileID: 4098037505471348102}
   m_Layer: 0
   m_Name: "\u0421TF_Missile_Yel"
   m_TagString: Untagged
@@ -33,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &263262785518497054
 MeshFilter:
@@ -125,3 +126,24 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!65 &4098037505471348102
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9094009511398482965}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.066178165, y: 0.0661782, z: 0.27574235}
+  m_Center: {x: 0, y: -0.000000016763806, z: 0.13787118}

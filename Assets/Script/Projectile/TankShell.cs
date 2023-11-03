@@ -34,8 +34,12 @@ public class TankShell : Projectile,IPoolable<TankShell>
     }
     protected void OnTriggerEnter(Collider other)
     {
+        Debug.Log("vao day");
         IDamageable damageable = other.GetComponent<IDamageable>();
-        if (damageable != null) damageable.TakeDame(projectileData.Damage);
+        if (damageable != null)
+        {
+            damageable.TakeDame(projectileData.Damage);
+        }
 
         gameObject.SetActive(false);
     }

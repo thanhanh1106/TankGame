@@ -42,15 +42,10 @@ public class EnemyAttackState : FSMState<Enemy>
             detalTime = 0;
         }
 
-        RotateTower();
-        
+        subject.RotateTower();
         subject.Attack();
     }
-    private void RotateTower()
-    {
-        Vector3 diretion = subject.VectorToPlayer.normalized;
-        subject.tower.LookAtDirection(diretion);
-    }
+
     private void MoveAroundTarget()
     {
         Vector3 randomDirection = Random.Range(0, 1) <= 0.5 ? subject.tower.transform.right : subject.tower.transform.right * -1;

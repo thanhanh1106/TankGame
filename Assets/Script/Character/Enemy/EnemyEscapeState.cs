@@ -23,6 +23,9 @@ public class EnemyEscapeState : FSMState<Enemy>
     public override void Update()
     {
         subject.statsController.Healing(Time.deltaTime*20); // fix tạm hồi 20 máu 1s
+        subject.characterMove.SetDestination(subject.OutwardPlayer.normalized * 20);
+        subject.RotateTower();
+        subject.Attack();
     }
     public override void FixUpdate()
     {

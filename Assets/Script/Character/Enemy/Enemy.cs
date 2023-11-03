@@ -24,9 +24,10 @@ public class Enemy : CharacterBrain
     public PlayerBrain Player => manager.Player;
     #endregion
 
+    public Vector3 VectorToPlayer => Player.transform.position - transform.position;
+    public Vector3 OutwardPlayer => transform.position - Player.transform.position;
     public bool IsInRangeChase => VectorToPlayer.sqrMagnitude <= EnemyData.RangeChase * EnemyData.RangeChase;
     public bool IsInRangeAttack => VectorToPlayer.sqrMagnitude <= EnemyData.RangeAttack*EnemyData.RangeAttack;
-    public Vector3 VectorToPlayer => Player.transform.position - transform.position;
 
     #region Property
     public EnemyDataSO Data => EnemyData;
@@ -69,6 +70,12 @@ public class Enemy : CharacterBrain
     private void LateUpdate()
     {
         finiteStateMachine.CurrentState.LateUpdate();
+    }
+
+    public void RotateTower()
+    {
+        Vector3 direction = VectorToPlayer.normalized;
+        tower.LookAtDirection(direction);
     }
 
 }
